@@ -1,0 +1,6 @@
+{ "feedUrl" : "https://live-planet-elm.pantheon.io/feeds.xml"
+, "consumerKey" : "x"
+, "consumerSecret" : "x"
+, "accessToken" : "x"
+, "accessTokenSecret" : "x"
+, "tags" : "#elmlang"}

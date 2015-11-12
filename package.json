@@ -1,0 +1,34 @@
+{
+  "name": "planet-elm-bot",
+  "version": "0.0.1",
+  "description": "A bot that tweets every article published on Planet Elm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doppioslash/planet-elm-bot.git"
+  },
+  "keywords": [
+    "elm",
+    "rss",
+    "twitter",
+    "bot"
+  ],
+  "author": "Claudia Doppioslash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doppioslash/planet-elm-bot/issues"
+  },
+  "homepage": "https://github.com/doppioslash/planet-elm-bot#readme",
+  "dependencies": {
+    "addressparser": "^0.3.2",
+    "array-indexofobject": "0.0.1",
+    "feedparser": "^1.1.4",
+    "readable-stream": "^2.0.4",
+    "request": "^2.65.0",
+    "sax": "^1.1.4",
+    "simple-twitter": "^1.0.7"
+  }
+}
