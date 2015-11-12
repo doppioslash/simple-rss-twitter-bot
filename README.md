@@ -3,7 +3,7 @@
 ### Description
 
 This is a simple bot, that will grab an RSS feed and post every new article from it as a tweet.
-It's based on [](). I added a configuration file, and if I can make it work deployment on Docker.
+It's based on [rss-twitter-bot](https://gitlab.com/hughr/rss-twitter-bot). I added a configuration file, and if I can make it work deployment on Docker.
 
 ### Instructions
 
