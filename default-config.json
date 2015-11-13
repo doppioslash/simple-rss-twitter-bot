@@ -1,4 +1,5 @@
-{ "feedUrl" : "https://live-planet-elm.pantheon.io/feeds.xml"
+{ "appName" : "Planet Elm Bot"
+, "feedUrl" : "https://live-planet-elm.pantheon.io/feeds.xml"
 , "consumerKey" : "x"
 , "consumerSecret" : "x"
 , "accessToken" : "x"

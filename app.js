@@ -5,8 +5,8 @@ var http = require('http');
 
 http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type' : 'text/plain'});
-	res.end('Planet Elm Bot\n');
-}).listen(3939);
+	res.end('RSS Twitter Bot\n');
+}).listen(5693);
 
 var timeInterval = 30000; // run every 10m
 var timerVar = setInterval (function () {runBot()}, timeInterval); 
@@ -62,20 +62,17 @@ function runBot(){
 		    console.log(error);
 		});
 
-		feedparser.on('readable', function() {  
-			//TODO: put stuff here
+		feedparser.on('readable', function() { 
 			var stream = this;
 			var meta = this.meta;
 
 			var item;
 
 			while (item = stream.read()) {
-				console.log(lastCompleted);
-				console.log("item date: " + item.date);
-
 				var itemDate = Date.parse(item.date);
-				console.log("item : " + itemDate + ", lastDate : " +lastCompleted );
-				if (item.date > lastCompleted){
+
+				//check to not publish older articles
+				if (itemDate > lastCompleted){
 					var titleLength = item.title.length;
 					var itemTitle = item.title;
 
@@ -83,33 +80,33 @@ function runBot(){
 						itemTitle = itemTitle.substring(0, 100);
 					}
 
-					/*twitter.post('statuses/update'
+					twitter.post('statuses/update'
 			                    , {'status' : itemTitle + ' ' + item.link + configData.tags}
 			                    , function (error, data) {
 			                        console.dir(data);
-			                    });*/
+			                    });
+					
 					console.log(itemTitle + ' ' + item.link + configData.tags);
 				}
 			}
+
+			//TO KNOW WHEN FROM TO START POSTING
+			var dateCompleted = new Date();
+			console.log('loop completed at ' + dateCompleted);
+
+			var outputData = {
+			  lastCompleted : dateCompleted
+			}
+
+			var outputFilename = './lastCompleted.json';
+
+			fs.writeFile(outputFilename, JSON.stringify(outputData, null, 4), function(err) {
+			    if(err) {
+			      console.log(err);
+			    } else {
+			      console.log("JSON saved to " + outputFilename);
+			    }
+			}); 
 		});
-
-		//TO KNOW WHEN FROM TO START POSTING
-
-		var dateCompleted = new Date();
-		console.log('loop completed at ' + dateCompleted);
-
-		var outputData = {
-		  lastCompleted : dateCompleted
-		}
-
-		var outputFilename = './lastCompleted.json';
-
-		fs.writeFile(outputFilename, JSON.stringify(outputData, null, 4), function(err) {
-		    if(err) {
-		      console.log(err);
-		    } else {
-		      console.log("JSON saved to " + outputFilename);
-		    }
-		}); 
 	});
 }
