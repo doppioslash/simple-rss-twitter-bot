@@ -15,6 +15,7 @@ It's based on [rss-twitter-bot](https://gitlab.com/hughr/rss-twitter-bot). I add
 
 ### Deploy with Docker
 You'll need a private docker repo, or your app's keys will be visible to the world.
+
 1. as above, fill in the config file, make sure it's in the same dir as the rest
 2. `docker build -t <yourname>/<apprepo>:<tag> .`
 3. `docker push <yourname>/<apprepo>`
