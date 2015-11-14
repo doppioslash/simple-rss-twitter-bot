@@ -8,7 +8,7 @@ http.createServer(function (req, res) {
 	res.end('RSS Twitter Bot\n');
 }).listen(5693);
 
-var timeInterval = 300000; // run every 10m
+var timeInterval = 300000; // run every 30m
 var timerVar = setInterval (function () {runBot()}, timeInterval); 
 
 function runBot(){
