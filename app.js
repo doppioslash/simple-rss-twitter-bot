@@ -81,7 +81,7 @@ function runBot(){
 					}
 
 					twitter.post('statuses/update'
-			                    , {'status' : itemTitle + ' ' + item.link + configData.tags}
+			                    , {'status' : itemTitle + ' ' + item.link + " " + configData.tags}
 			                    , function (error, data) {
 			                        console.dir(data);
 			                    });
